@@ -1,4 +1,6 @@
-const fs = require("fs").promises, path = require("path"), ignore = require("ignore");
+const fs = require("fs").promises; 
+const path = require("path");
+const ignore = require("ignore");
 
 async function loadIgnoreRules(rootDir) {
     const ig = ignore();

@@ -48,7 +48,7 @@ async function loadAuth() {
     try {
 
         const authPath = path.join(
-            process.cwd(),
+            process.env.HOME || process.env.USERPROFILE,
             ".repocore",
             "auth.json"
         );
@@ -71,20 +71,6 @@ async function ensureLoggedIn() {
     const auth = await loadAuth();
 
     if (!auth || !auth.userId) {
-        console.log("\nYou are not logged in.");
-        console.log("Run:");
-        console.log("repocore login <email> <password>\n");
-        return false;
-    }
-
-    return true;
-}
-
-async function ensureLoggedIn() {
-
-    const config = await loadConfig();
-
-    if (!config || !config.userId) {
         console.log("\nYou are not logged in.");
         console.log("Run:");
         console.log("repocore login <email> <password>\n");
